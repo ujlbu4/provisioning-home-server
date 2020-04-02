@@ -5,14 +5,18 @@ Vagrant.configure("2") do |config|
   # boxes: https://app.vagrantup.com/boxes/search
   config.vm.box = "ubuntu/bionic64" # Ubuntu 18.04 LTS
 
-  config.vm.hostname = "homeserver.v"
-  config.vm.network "private_network", ip: "172.16.20.10"
-
   # setup ssh (copy ssh keys to guest machine)
   ssh_pub_key = File.readlines("#{Dir.home}/.ssh/id_rsa.pub").first.strip
-
-  #config.vm.provision 'shell', inline: 'rm -rf /root/.ssh || true'
   config.vm.provision 'shell', inline: 'mkdir -p /root/.ssh'
   config.vm.provision 'shell', inline: "echo #{ssh_pub_key} >> /root/.ssh/authorized_keys"
   config.vm.provision 'shell', inline: "echo #{ssh_pub_key} >> /home/vagrant/.ssh/authorized_keys", privileged: false
+
+  {
+    'homeserver'  => '172.16.20.10',
+  }.each do |short_name, ip|
+    config.vm.define short_name do |host|
+      host.vm.network 'private_network', ip: ip
+      host.vm.hostname = "#{short_name}.v"
+    end
+  end
 end
