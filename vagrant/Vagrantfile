@@ -7,4 +7,12 @@ Vagrant.configure("2") do |config|
 
   config.vm.hostname = "homeserver.v"
   config.vm.network "private_network", ip: "172.16.20.10"
+
+  # setup ssh (copy ssh keys to guest machine)
+  ssh_pub_key = File.readlines("#{Dir.home}/.ssh/id_rsa.pub").first.strip
+
+  #config.vm.provision 'shell', inline: 'rm -rf /root/.ssh || true'
+  config.vm.provision 'shell', inline: 'mkdir -p /root/.ssh'
+  config.vm.provision 'shell', inline: "echo #{ssh_pub_key} >> /root/.ssh/authorized_keys"
+  config.vm.provision 'shell', inline: "echo #{ssh_pub_key} >> /home/vagrant/.ssh/authorized_keys", privileged: false
 end
