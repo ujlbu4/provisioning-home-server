@@ -20,3 +20,7 @@ Host 172.16.20.*
     User vagrant
     IdentityFile /Users/ujlbu4/.ssh/id_rsa
 ```
+
+
+## Resources
+ - как добавить свои ssh ключи на вагрант машину: https://stackoverflow.com/questions/30075461/how-do-i-add-my-own-public-key-to-vagrant-vm
