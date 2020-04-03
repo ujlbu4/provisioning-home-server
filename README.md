@@ -6,14 +6,14 @@
 
 
 ## TODO:
- - [] zsh
+ - [x] zsh
     - [x] oh-my-zsh
-    - [ ] плагины и настройки к нему
+    - [x] плагины и настройки к нему
  - [x] user'ов и их ssh ключи
- - [ ] vpn конфиги, ключи и т.д
  - [x] настройки firewall'а (ufw)
  - soft 
     - [ ] docker
+    - [ ] openssh server (конфиги, ключи и т.д)
     - [ ] home-assistant
         - [ ] hassio
         - [ ] hacs
