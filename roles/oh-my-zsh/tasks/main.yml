@@ -1,0 +1,15 @@
+---
+- name: install zsh-autosuggestions
+  become: true
+  become_user: '{{ item.username }}'
+  git:
+    repo=https://github.com/zsh-users/zsh-autosuggestions
+    dest=~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+  with_items: '{{ users }}'
+- name: install zsh-syntax-highlighting
+  become: true
+  become_user: '{{ item.username }}'
+  git:
+    repo=https://github.com/zsh-users/zsh-syntax-highlighting
+    dest=~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+  with_items: '{{ users }}'

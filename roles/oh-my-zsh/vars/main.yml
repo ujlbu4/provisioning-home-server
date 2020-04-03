@@ -1,0 +1,5 @@
+---
+# vars file for oh-my-zsh
+oh_my_zsh_theme: gnzh
+oh_my_zsh_plugins: [docker, encode64, git, httpie, zsh-autosuggestions, zsh-syntax-highlighting]
+users: "{{ users_to_install | list2list_of_dicts(key_name='username') }}" # oh-my-zsh

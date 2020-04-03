@@ -9,4 +9,3 @@ roles:
   - name: stouts.users
     src: https://github.com/Stouts/Stouts.users
     version: 1.2.1
-

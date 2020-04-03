@@ -1,0 +1,4 @@
+---
+dependencies:
+  - role: community/gantsign.oh-my-zsh
+      
