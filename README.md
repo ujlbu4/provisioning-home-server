@@ -68,3 +68,19 @@ homeserver.v | SUCCESS => {
     "ping": "pong"
 }
 ```
+
+
+## Ansible Galaxy
+
+resources: 
+ - https://docs.ansible.com/ansible/latest/galaxy/user_guide.html
+
+
+Galaxy удобен тем, что не нужно заморачиваться с сабмодулями для ролей — создаешь requirements.txt файл, прописываешь так collections или отдельные roles, запускаешь:
+```
+ansible-galaxy role install -r requirements.yml
+```
+и оно все приезжает, ты это коммитишь в репу, ну и апдейтишь при необходимости. 
+
+Примечание: чтобы ansible-galaxy устанавливал в нужную папку по умолчанию, то проще ее прописать в `ansible.cfg` — поле `roles_path`
+
