@@ -1,0 +1,24 @@
+---
+# see https://galaxy.ansible.com/Stouts/users/
+
+users_enabled: yes    # the role is enabled
+
+users_users:
+  - name: ujlbu4
+    groups: sudo 
+    update_password: on_create
+
+
+users_ssh_keys:
+  - name: ujlbu4
+    authorized:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCuyxkGh2CODumxtsI/MSwuOby5bDzwsePcKvrMF/Cs+qUOeLA97dZdJo5bem2tRYO6Xmjc6ZygpSrwGo0uQ8OmcYX7R3ySNqJhcvjwCsfgdxHB/e4by/I26clYDRosd5nQ7xf2mLVXDiyxQLUFRp14aEwdcZz2OA1i+UzF0Ry6ZasEnurNuLlyd0HMqp1UYZbPwY16mtQ9wSxY7cZeuCNZA/UCxi3KVpKKPyp6j4xh+EbSAdOYBkVzcNxqLtR3LMpt5EyJbMYcte7a7rg5S5r7BbI/Mnx5GvB6xZwViNiv+5BJfokQpgCSKNTkz/8RMRtwz6yD3KmzyUUKEYPq8ikMC2nf/t7Ns/umeRlZ/LtEMRr6DEQQ8xsskNxH5IjITSErh2LBX7gWhFTgjsjJQQd2vFECdFnikYYFk4UaFd46JCyLSYymIIRPWCQ3ec/VZ6E04mFcOVcjRdkOfN/uKrvzDzEKC6wa/7iX+4JaOQYkspXgbK9DFUgoH81W7E7l54oN6IoltfdL3V5tTdCIAhdyP53t6EC18Cjw/LRx5AloDWfxjIhggcZm2+1KpJ6UjedMcBO5cRFiwvf7atfM4SpO7SGrKxPC1O4NTCgiWYrcDZUycV4h52I3ELREHzDnYgBigi0nIrS1Ds6q+7YynBgh1okq8rprYI3r3nEj/fwpFw== ujlbu4@gmail.com"
+
+
+users_to_install:
+  - ujlbu4 
+
+users_shell: /bin/zsh
+
+users_remove_users: []          # List of user names which will be removed
+users_remove_groups: []         # List of group names which will be removed

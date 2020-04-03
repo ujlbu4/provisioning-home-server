@@ -1,0 +1,25 @@
+---
+- hosts: homeserver
+  roles:    
+    - community/stouts.users
+  vars:
+    sys_packages: [ 'curl', 'git', 'ufw']
+  tasks:
+    - name: Update apt
+      apt: update_cache=yes state=latest
+    - name: Install required system packages
+      apt: 
+        name: "{{ sys_packages }}"
+        state: present
+
+    # UFW Setup
+    - name: UFW - Allow SSH connections
+      ufw:
+        rule: allow
+        name: OpenSSH
+
+    - name: UFW - Deny all other incoming traffic by default
+      ufw:
+        state: enabled
+        policy: deny
+        direction: incoming
