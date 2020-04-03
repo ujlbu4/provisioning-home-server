@@ -6,6 +6,9 @@ roles:
   - name: stouts.nginx
     src: https://github.com/Stouts/Stouts.nginx
     version: 2.1.2
+  - name: stouts.sudo
+    src: https://github.com/Stouts/Stouts.sudo
+    version: 2.1.1
   - name: stouts.users
     src: https://github.com/Stouts/Stouts.users
     version: 1.2.1

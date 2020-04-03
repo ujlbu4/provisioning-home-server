@@ -2,6 +2,7 @@
 - hosts: homeserver
   roles:    
     - community/stouts.users
+    - community/stouts.sudo
     - oh-my-zsh
   vars:
     sys_packages: [ 'curl', 'git', 'ufw']
