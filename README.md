@@ -77,11 +77,24 @@ resources:
  - https://docs.ansible.com/ansible/latest/galaxy/user_guide.html
 
 
-Galaxy удобен тем, что не нужно заморачиваться с сабмодулями для ролей — создаешь requirements.txt файл, прописываешь так collections или отдельные roles, запускаешь:
+Galaxy удобен тем, что он как `pip install` — не нужно заморачиваться с сабмодулями для ролей — создаешь requirements.txt файл, прописываешь нужные roles (community collections чот не зашли, либо я прост не встретил подходящих), запускаешь:
 ```
 ansible-galaxy role install -r requirements.yml
 ```
 и оно все приезжает, ты это коммитишь в репу, ну и апдейтишь при необходимости. 
 
 Примечание: чтобы ansible-galaxy устанавливал в нужную папку по умолчанию, то проще ее прописать в `ansible.cfg` — поле `roles_path`
+
+
+## Playbook Filters
+
+resources:
+ - https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html — отличный раздел, в котором приведены вомзожные операции на jinja2 переменными (которые повсеместно используются в плейбуках)
+ - https://docs.ansible.com/ansible/latest/dev_guide/developing_plugins.html — developing plugins
+
+В общем, для одной из community ролей потребовалось преобразовать массив пользователей в массив словарей пользователей:
+```
+['user1', 'user2'] --> [{'username': 'user1'}, {'username': 'user2'}]
+```
+стандартных фильров для такой операции не нашлось и как позже оказалось, самым простым и быстро было создать свой фильтр по образу и подобию существующих ([тыц](https://github.com/ansible/ansible/blob/devel/lib/ansible/plugins/filter/core.py)):
 
