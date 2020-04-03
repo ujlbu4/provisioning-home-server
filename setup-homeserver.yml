@@ -2,8 +2,13 @@
 - hosts: homeserver
   roles:    
     - community/stouts.users
+    - community/gantsign.oh-my-zsh
   vars:
     sys_packages: [ 'curl', 'git', 'ufw']
+    oh_my_zsh_theme: gnzh
+    oh_my_zsh_plugins: [docker, encode64, git, httpie, zsh-autosuggestions, zsh-syntax-highlighting]
+    users:  # oh-my-zsh
+      - username: ujlbu4  # TODO: replace with users from group_vars
   tasks:
     - name: Update apt
       apt: update_cache=yes state=latest

@@ -1,5 +1,8 @@
 ---
 roles:
+  - name: gantsign.oh-my-zsh
+    src: https://github.com/gantsign/ansible-role-oh-my-zsh
+    version: 2.2.1
   - name: stouts.nginx
     src: https://github.com/Stouts/Stouts.nginx
     version: 2.1.2
