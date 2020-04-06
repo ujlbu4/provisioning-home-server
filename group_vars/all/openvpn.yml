@@ -71,4 +71,9 @@ openvpn_download_dir: "/tmp/vpn-credentials/"
       # ```
       # -- фиксит 
 # - ну и коннект собственно не проходит, не устанавливается
+      # фиксится через:
+      # ```
+      # openvpn_service: openvpn@server
+      # ```
+      # для целевой os (в нашем случае Ubuntu.bionic.yml)
 # - ну и несколько warning'ов от tunnelblick'а о том что старые версии юзаются

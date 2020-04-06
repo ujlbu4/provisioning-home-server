@@ -1,13 +1,14 @@
 ---
 - hosts: homeserver
-  roles:    
+  roles:
     - openvpn
   # vars:
   #   sys_packages: [ 'curl', 'git', 'ufw']
   tasks:
-    - name: debug list to dict 2
+    - name: Display all variables/facts known for a host
       debug:
-        msg: "debug openvpn playbook"
+        var: hostvars[inventory_hostname]
+        verbosity: 4
     # UFW Setup
     - name: UFW - Allow openvpn connections
       ufw:

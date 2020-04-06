@@ -44,10 +44,3 @@
   apt:
     name: bridge-utils
   when: openvpn_bridge | bool
-
-- name: Create ovpns folder
-  file:
-    path: "{{ openvpn_etcdir }}/ovpns"
-    state: directory
-    mode: '0755'
-
