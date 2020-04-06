@@ -6,6 +6,18 @@ roles:
   - name: stouts.nginx
     src: https://github.com/Stouts/Stouts.nginx
     version: 2.1.2
+  # - name: gavika.openvpn 
+  #   src: https://github.com/gavika/openvpn
+  #   version: v1.1.0
+  # - name: gavika.easy_rsa
+  #   src: https://github.com/gavika/easy_rsa
+  #   version: v1.0.0
+  - name: stouts.openvpn
+    src: https://github.com/Stouts/Stouts.openvpn
+    version: 3.0.0
+  - name: nkakouros.easyrsa
+    src: https://github.com/nkakouros-original/ansible-role-easyrsa
+    version: master
   - name: stouts.sudo
     src: https://github.com/Stouts/Stouts.sudo
     version: 2.1.1

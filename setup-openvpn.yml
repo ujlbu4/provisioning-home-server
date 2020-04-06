@@ -1,0 +1,16 @@
+---
+- hosts: homeserver
+  roles:    
+    - openvpn
+  # vars:
+  #   sys_packages: [ 'curl', 'git', 'ufw']
+  tasks:
+    - name: debug list to dict 2
+      debug:
+        msg: "debug openvpn playbook"
+    # UFW Setup
+    - name: UFW - Allow openvpn connections
+      ufw:
+        rule: allow
+        proto: udp
+        to_port: 1194

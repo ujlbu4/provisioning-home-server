@@ -1,0 +1,5 @@
+---
+dependencies:
+  - role: community/nkakouros.easyrsa
+  - role: community/stouts.openvpn
+      

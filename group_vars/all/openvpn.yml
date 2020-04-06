@@ -1,0 +1,74 @@
+---
+# EasyRSA
+easyrsa_pki_dir: /etc/easyrsa/pki
+easyrsa_servers:
+  - name: server
+easyrsa_clients:
+  - name: client1
+  - name: client2
+    pass: password
+easyrsa_renew: "{{ easyrsa_clients }}" # Existing certificates to renew.
+easyrsa_revoked:
+  - name: old_client
+    reason: unspecified
+# easyrsa_to_pkcs12: "{{ easyrsa_clients }}"
+# easyrsa_to_pkcs8: "{{ easyrsa_clients }}"
+# easyrsa_to_pkcs7: "{{ easyrsa_clients }}"
+easyrsa_generate_dh: true
+
+easyrsa_conf_req_country: US
+easyrsa_conf_req_province: "California"
+easyrsa_conf_req_city: "San Francisco"
+easyrsa_conf_req_org: "SomeOrg"
+easyrsa_conf_req_email: "temptsr@gmail.com"
+easyrsa_conf_req_ou: "Community"
+
+easyrsa_download_pki: true
+easyrsa_download_dir: "/tmp/easyrsa_pki/"
+
+
+# OpenVPN
+openvpn_keydir: "{{ easyrsa_pki_dir }}"
+openvpn_clients: "{{ easyrsa_clients | map(attribute='name') | list }}"
+openvpn_clients_revoke: [] # Revoke clients certificates
+openvpn_verb: 4
+openvpn_client_to_client: false
+
+openvpn_cipher: AES-128-CBC
+openvpn_server_options: 
+  - auth SHA256
+openvpn_client_options: 
+  - auth SHA256
+openvpn_unified_client_profiles: true  # Whether to embed CA, cert, and key info inside client OVPN config file.
+openvpn_tls_auth: true # Enable HMAC signature to TLS handshakes
+openvpn_use_pam: false 
+openvpn_route_traffic: true
+
+openvpn_download_clients: true
+openvpn_download_dir: "/tmp/vpn-credentials/"
+
+
+# openvpn_ccd_configs:
+#   - name: client1
+#     content: '# pass'
+#   - name: client2
+#     content: '# pass'
+
+
+
+## TODO
+# - ca ca.crt, cert client1.crt, key client.key — зашить в ovpn (сейчас это 4 файлами приезжает)
+      # ```
+      # openvpn_unified_client_profiles: true
+      # ```
+      # -- фиксит 
+# - ufw блокирует UDP 1194 (в туториале показывается как добавлять в исключения) — либо поменять 
+#   к какому порту он коннектится по умолчанию (https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-16-04#optional-adjust-the-port-and-protocol)
+      # fixed (через ufw)
+# - запрашиает логин пароль при подключении к vpn (что собственно нежелательно )
+      # ```
+      # openvpn_use_pam: false 
+      # ```
+      # -- фиксит 
+# - ну и коннект собственно не проходит, не устанавливается
+# - ну и несколько warning'ов от tunnelblick'а о том что старые версии юзаются
