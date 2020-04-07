@@ -12,8 +12,9 @@
  - [x] user'ов и их ssh ключи
  - [x] настройки firewall'а (ufw)
  - soft 
-    - [ ] docker
+    - [x] docker
     - [x] openvpn server (конфиги, ключи и т.д)
+    - [ ] socks5
     - [ ] home-assistant
         - [ ] hassio
         - [ ] hacs
