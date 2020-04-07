@@ -13,7 +13,7 @@
  - [x] настройки firewall'а (ufw)
  - soft 
     - [ ] docker
-    - [ ] openvpn server (конфиги, ключи и т.д)
+    - [x] openvpn server (конфиги, ключи и т.д)
     - [ ] home-assistant
         - [ ] hassio
         - [ ] hacs
@@ -133,5 +133,8 @@ resources:
 > в общем, проблема такая, что `service openvpn status` пишет, что стартанул, но файл с логами не создается (т.е. я даже не мог задебажить почему vpn не подключается), ответы нашел здесь:
         - https://unix.stackexchange.com/questions/292091/ubuntu-server-16-04-openvpn-seems-not-to-start-no-logs-get-written
         - https://a20.net/bert/2016/09/27/openvpn-client-connection-not-started-on-ubuntu-16-04/
-        - плюс почитать в принципе про systemd и т.п.
+        - плюс почитать в принципе про [systemd](https://wiki.archlinux.org/index.php/Systemd_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9))
 
+
+TODO:
+ - [ ] загружать ранее сгенеренные ключи (для случая, когда на новый сервак переехали с нуля, чтобы не перездавать всем клиентам новые ключи (*.ovpn) )

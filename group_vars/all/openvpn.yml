@@ -31,7 +31,6 @@ easyrsa_download_dir: "/tmp/easyrsa_pki/"
 openvpn_keydir: "{{ easyrsa_pki_dir }}"
 openvpn_clients: "{{ easyrsa_clients | map(attribute='name') | list }}"
 openvpn_clients_revoke: [] # Revoke clients certificates
-openvpn_verb: 4
 openvpn_client_to_client: false
 
 openvpn_cipher: AES-128-CBC
@@ -54,26 +53,3 @@ openvpn_download_dir: "/tmp/vpn-credentials/"
 #   - name: client2
 #     content: '# pass'
 
-
-
-## TODO
-# - ca ca.crt, cert client1.crt, key client.key — зашить в ovpn (сейчас это 4 файлами приезжает)
-      # ```
-      # openvpn_unified_client_profiles: true
-      # ```
-      # -- фиксит 
-# - ufw блокирует UDP 1194 (в туториале показывается как добавлять в исключения) — либо поменять 
-#   к какому порту он коннектится по умолчанию (https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-16-04#optional-adjust-the-port-and-protocol)
-      # fixed (через ufw)
-# - запрашиает логин пароль при подключении к vpn (что собственно нежелательно )
-      # ```
-      # openvpn_use_pam: false 
-      # ```
-      # -- фиксит 
-# - ну и коннект собственно не проходит, не устанавливается
-      # фиксится через:
-      # ```
-      # openvpn_service: openvpn@server
-      # ```
-      # для целевой os (в нашем случае Ubuntu.bionic.yml)
-# - ну и несколько warning'ов от tunnelblick'а о том что старые версии юзаются

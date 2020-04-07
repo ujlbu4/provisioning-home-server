@@ -2,8 +2,6 @@
 - hosts: homeserver
   roles:
     - openvpn
-  # vars:
-  #   sys_packages: [ 'curl', 'git', 'ufw']
   tasks:
     - name: Display all variables/facts known for a host
       debug:
