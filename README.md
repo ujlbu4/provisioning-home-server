@@ -121,12 +121,15 @@ resources:
     - https://www.techchorus.net/blog/run-your-own-openvpn-server/ — при первом взгляде норм статься с инсрукциями и примерами как что настрорить
         - [gavika.openvpn](https://github.com/gavika/openvpn) — см. playbook execution flow
         - [gavika.easy_rsa](https://github.com/gavika/easy_rsa)
-        - а вообще хз, предлагет запускать 3 раза в правильном порядке — "You are responsible to execute the roles the required number of times and in required order", чот идемпотентностью и не пахнет
+        - а вообще хз, предлагет запускать 3 раза в правильном порядке — "You are responsible to execute the roles the required number of times and in required order", чот идемпотентностью и не пахнет (updated: по коду все же пока этот варик нравится больше чем с stouts в котором много возни было, текущий я ставить не пробовал, но идеалогически он выглядит более правильным)
     - https://itnext.io/setup-privacy-with-openvpn-using-ansible-b9e613a66f85 — более кардкодный способ, выглядит что как-будто в лоб [вот эту инструкцицию (digitalocean)](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-16-04) автоматизировал
         - [исходники](https://github.com/MiteshSharma/OpenVPNAnsible)
     - https://dteslya.engineer/automation/2019-02-25-ansible-openvpn/ — вот еще чувак, но чот мне не нравится его решение
         - [исходинки](https://github.com/dteslya/ansible-ovpn-mikrotik)
         - вот [пример того](https://github.com/dteslya/ansible-ovpn-mikrotik/blob/01caae618929a5a6077496a599c9a79f983bb1b2/playbooks/roles/add_clients/tasks/add_gen_key.yml#L51), что не нравится
+    - https://github.com/Stouts/Stouts.openvpn — использовал этот, но возни было много (думаю попробовать и переехать на gavika)
+        - смущает что ключи не подписывают для openvpn-server'а, а сразу используют сгенерированные в rsa, с другой стороны для pet-project'а возможно это норм
+
 
  - troubleshooting
     - https://habr.com/ru/post/233971/ — отличный, подробный обзор openvpn, CA, клиентов — какие оно работает и т.д (дает собственно понимание зависимостей и как следствие сильно помогает в дебаге и настройки конфигов)
