@@ -12,6 +12,9 @@ roles:
   # - name: gavika.easy_rsa
   #   src: https://github.com/gavika/easy_rsa
   #   version: v1.0.0
+  - name: geerlingguy.docker
+    src: https://github.com/geerlingguy/ansible-role-docker
+    version: 2.7.0
   - name: stouts.openvpn
     src: https://github.com/Stouts/Stouts.openvpn
     version: develop

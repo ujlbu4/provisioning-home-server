@@ -4,6 +4,7 @@
     - community/stouts.users
     - community/stouts.sudo
     - oh-my-zsh
+    - community/geerlingguy.docker
   vars:
     sys_packages: [ 'curl', 'git', 'ufw']
   tasks:
